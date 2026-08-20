@@ -1,0 +1,13 @@
+{
+  "name": "frequencia-chat",
+  "version": "1.0.0",
+  "description": "Chat de texto + chamada de voz/vídeo + compartilhamento de tela, estilo Discord, pra rodar com os amigos.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5"
+  }
+}
