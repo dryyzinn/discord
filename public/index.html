@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Frequência — chat e call com a galera</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- TELA DE LOGIN -->
+  <div id="login-screen" class="screen">
+    <div class="login-card">
+      <div class="brand">
+        <span class="brand-mark">))) </span>
+        <h1>Frequência</h1>
+      </div>
+      <p class="brand-sub">Escolha um nome de usuário pra entrar na sala.</p>
+      <form id="login-form">
+        <input id="username-input" type="text" placeholder="seu nome" maxlength="24" autocomplete="off" required />
+        <button type="submit">Entrar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- APP PRINCIPAL -->
+  <div id="app-screen" class="screen hidden">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <span class="brand-mark">)))</span>
+        <span class="server-name">Nossa Sala</span>
+      </div>
+
+      <div class="channel-group">
+        <h3>Canais de texto</h3>
+        <ul id="text-channel-list" class="channel-list"></ul>
+      </div>
+
+      <div class="channel-group">
+        <h3>Canais de voz</h3>
+        <ul id="voice-channel-list" class="channel-list"></ul>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="me">
+          <span class="avatar" id="me-avatar"></span>
+          <span id="me-username"></span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <!-- PAINEL DE VOZ (aparece quando você está em um canal de voz) -->
+      <div id="voice-panel" class="voice-panel hidden">
+        <div class="voice-panel-header">
+          <span id="voice-channel-name"></span>
+          <button id="leave-voice-btn" class="danger-btn">Sair da chamada</button>
+        </div>
+        <div id="video-grid" class="video-grid"></div>
+        <div class="voice-controls">
+          <button id="toggle-mic-btn" class="control-btn" title="Mutar/desmutar microfone">🎙️</button>
+          <button id="toggle-cam-btn" class="control-btn" title="Ligar/desligar câmera">📷</button>
+          <button id="toggle-screen-btn" class="control-btn" title="Compartilhar tela">🖥️</button>
+        </div>
+      </div>
+
+      <!-- CHAT DE TEXTO -->
+      <div id="text-panel" class="text-panel">
+        <div class="channel-header">
+          <span id="channel-title">#geral</span>
+        </div>
+        <div id="messages" class="messages"></div>
+        <form id="message-form" class="message-form">
+          <input id="message-input" type="text" placeholder="Enviar mensagem..." autocomplete="off" />
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+    </main>
+
+    <aside class="online-panel">
+      <h3>Online — <span id="online-count">0</span></h3>
+      <ul id="online-list"></ul>
+    </aside>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>
